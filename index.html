@@ -361,24 +361,7 @@ tailwind.config = {
             <div class="font-display font-bold text-2xl text-white">8+</div>
             <div class="font-mono text-xs text-white/40 uppercase tracking-widest mt-0.5">Années</div>
           </div>
-          <div class="px-6 py-4 text-center">
-            <div class="font-display font-bold text-2xl text-glow-cyan" id="visit-count">—</div>
-            <div class="font-mono text-xs text-white/40 uppercase tracking-widest mt-0.5">Visiteurs</div>
-          </div>
-          <script>
-            fetch("https://hits.sh/novaknowledgeint-lgtm.github.io/labo-numerique.svg")
-              .then(r => r.text())
-              .then(svg => {
-                // Le SVG contient le nombre dans une balise <text>
-                const matches = svg.match(/>(\d+)</g);
-                if (matches && matches.length > 0) {
-                  // Prendre le dernier nombre trouvé (le compteur total)
-                  const num = matches[matches.length - 1].replace(/[><]/g, '');
-                  document.getElementById("visit-count").textContent = num;
-                }
-              })
-              .catch(() => {});
-          </script>
+
         </div>
       </div>
 
@@ -446,6 +429,17 @@ tailwind.config = {
     </div>
   </div>
 </section>
+
+<!-- ══ COMPTEUR VISITEURS ══ -->
+<div class="relative flex justify-center py-6" style="z-index:1">
+  <a href="https://hits.sh" target="_blank" rel="noopener noreferrer"
+     style="opacity:0.85;transition:opacity .3s"
+     onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85">
+    <img src="https://hits.sh/novaknowledgeint-lgtm.github.io/labo-numerique.svg?style=flat&label=Visiteurs&color=2ab8cc&labelColor=061820"
+         alt="Compteur de visiteurs"
+         style="height:36px">
+  </a>
+</div>
 
 <div class="divider-glow relative" style="z-index:1"></div>
 
