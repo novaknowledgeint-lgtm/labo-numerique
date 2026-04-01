@@ -361,6 +361,24 @@ tailwind.config = {
             <div class="font-display font-bold text-2xl text-white">8+</div>
             <div class="font-mono text-xs text-white/40 uppercase tracking-widest mt-0.5">Années</div>
           </div>
+          <div class="px-6 py-4 text-center">
+            <div class="font-display font-bold text-2xl text-glow-cyan" id="visit-count">—</div>
+            <div class="font-mono text-xs text-white/40 uppercase tracking-widest mt-0.5">Visiteurs</div>
+          </div>
+          <script>
+            fetch("https://hits.sh/novaknowledgeint-lgtm.github.io/labo-numerique.svg")
+              .then(r => r.text())
+              .then(svg => {
+                // Le SVG contient le nombre dans une balise <text>
+                const matches = svg.match(/>(\d+)</g);
+                if (matches && matches.length > 0) {
+                  // Prendre le dernier nombre trouvé (le compteur total)
+                  const num = matches[matches.length - 1].replace(/[><]/g, '');
+                  document.getElementById("visit-count").textContent = num;
+                }
+              })
+              .catch(() => {});
+          </script>
         </div>
       </div>
 
@@ -1359,7 +1377,6 @@ a.contact-item:hover .contact-icon-wrap {
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3"
          style="border-top:1px solid rgba(42,184,204,.08)">
       <span class="font-mono text-xs text-white/20">© 2026 novaKnowledge.int · Tous droits réservés</span>
-      <span class="font-mono text-xs text-white/20 flex items-center gap-2"><img src="https://hits.sh/novaknowledgeint-lgtm.github.io/labo-numerique.svg?style=flat&label=Visiteurs&color=2ab8cc&labelColor=061820" alt="Compteur de visiteurs" style="height:18px;opacity:0.5;vertical-align:middle"></span>
       <span class="font-mono text-xs text-white/15">Géochimie · Environnement · Innovation · Mauritius</span>
     </div>
   </div>
